@@ -1,0 +1,4 @@
+export const ADD_FOLDER = 'ADD_FOLDER';
+export const ADD_FILE = 'ADD_FILE';
+export const DELETE_FILE_FOLDER = 'DELETE_FOLDER';
+export const UPDATE_CURRENT_FOLDER = 'UPDATE_CURRENT_FOLDER';

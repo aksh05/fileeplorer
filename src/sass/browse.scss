@@ -1,0 +1,57 @@
+.browse{
+    display: flex;
+    flex-wrap: wrap;
+    .file-cont {
+        display: flex;
+        justify-content: flex-end;
+        height: 100px;
+        width: 70px;
+        font-size: 12px;
+        align-items: center;
+        margin: 0 10px;
+        flex-direction: column;
+        .file-image {
+            display: flex;
+            background-repeat: no-repeat;
+            color: #ffffff;
+            cursor: default;
+            text-align: center;
+            position: relative;
+            justify-content: center;
+            align-items: flex-end;
+            padding-bottom: 10px;
+            box-sizing: border-box;
+        }
+    
+        .folder-icon {
+            text-decoration: none;
+            .folder-disp {
+                @extend .file-image;
+                width: 56px;
+                height: 61px;
+                background-image: url("/src/images/folder.png");
+            }
+        }
+    
+        .file-icon {
+            text-decoration: none;
+            .file-disp {
+                @extend .file-image;
+                cursor: default;
+                width: 52px;
+                height: 75px;
+                background-image: url("/src/images/file.png");
+            }
+        }
+        .file-name{
+            font-size: 13px;
+            color: #666;
+        }
+    }
+    /* .file-cont:focus{
+        .file-name{
+            
+        }
+    } */
+    
+}
