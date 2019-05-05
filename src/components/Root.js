@@ -3,9 +3,11 @@ import PropTypes from 'prop-types'
 import { Provider } from 'react-redux'
 import { Route, Switch } from 'react-router-dom'
 
-import Browse from './Browse';
+import Explorer from './Explorer';
 import SideBar from './SideBar';
 import NotFound from './NotFound';
+
+import '../sass/root.scss';
 
 export default function Root({ store }) {
    const {rootdir} = store.getState();
@@ -15,7 +17,7 @@ export default function Root({ store }) {
             <div className="file-explorer">
                 <SideBar />
                 <Switch>
-                    <Route path="/" render={()=><Browse  />} />
+                    <Route path="/" render={()=><Explorer  />} />
                     <Route  component={NotFound} />
                 </Switch>
             </div>

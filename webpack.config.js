@@ -15,7 +15,12 @@ module.exports = {
     },
 
     devServer: {
-        contentBase: './'
+        contentBase: './',
+        historyApiFallback: {
+            rewrites: [
+                { from: /^\/$/, to: '/index.html' },
+              ]
+        }
     },
     devtool: 'inline-source-map',
 
@@ -30,7 +35,7 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.(png|jpg|gif)$/,
+                test: /\.(png|jpg|gif|svg)$/,
                 use: [
                     {
                         loader: 'url-loader',

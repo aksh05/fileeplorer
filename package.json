@@ -4,7 +4,7 @@
   "description": "The react file explorer lets you browse through all the files and folders created by you",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --open -d --mode development",
+    "start": "webpack-dev-server --open -d --mode development --history-api-fallback",
     "build": "webpack --mode production"
   },
   "author": "akshay sehgal",
