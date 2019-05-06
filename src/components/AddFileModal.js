@@ -9,9 +9,14 @@ function AddFileModal(props) {
     const [createdBy, setCreatedBy] = useState('');
     const [createdOn, formattedDate] = formatDate(new Date());
     const [size, setSize] = useState('');
+    const [error, setError] = useState(false);
 
     const { location } = props;
     function create() {
+        if(!name){
+            setError(true);
+            return;
+        }
         const id = name + createdOn;
         const { currentDir } = location.state || { currentDir: "rootid" };
         const fileObj = {
@@ -30,6 +35,7 @@ function AddFileModal(props) {
         props.onAdd({
             [id]: fileObj
         }, currentDir);
+        setError(false);
     }
     return <div className="add-directory">
         <div className="add-header">
@@ -59,6 +65,10 @@ function AddFileModal(props) {
                 <div className="form-row">
                     <input type="button" value="Create" onClick={create} />
                 </div>
+                <div className="form-row">
+                    {error&& <p className="error">Please enter a name.</p>}
+                </div>
+
             </form>
         </div>
 

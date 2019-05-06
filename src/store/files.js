@@ -1,6 +1,6 @@
 export const rootdirectory = {
     'rootid': {
-        name: 'root',
+        name: 'Root',
         isFolder: true,
         createdBy: 'akshay sehgal',
         createdOn: 1557074144590,

@@ -18,7 +18,7 @@ export default function Root({ store }) {
                 <SideBar />
                 <Switch>
                     <Route path="/" render={()=><Explorer  />} />
-                    <Route  component={NotFound} />
+                   {/*  <Route  component={NotFound} /> */}
                 </Switch>
             </div>
         </Provider>

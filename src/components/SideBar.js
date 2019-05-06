@@ -1,12 +1,60 @@
-import React from 'react'
-import { withRouter } from 'react-router-dom'
+import React, {useState} from 'react'
+import { withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
+
 import '../sass/sidebar.scss';
-function Browse(props){
+
+function DirectoryTree(props) {
+    const { rootdir } = props;
+    const dir = rootdir[Object.keys(rootdir)[0]];
+    const dirChildren = Object.keys(dir.children || {});
+    const isRoot = dir.name === 'Root';
+    /* const [display,setDisplay] = useState(isRoot||props.parent=="Root"?'flex':'none');
+    let  style = {
+        display:isRoot?'flex':display,
+    };
+
+    function showChildren(){
+        setDisplay('flex');
+    } */
+    return (
+        <ul className={`${isRoot?'root-dir-main':''} dir-main`} >
+            <div>
+
+            <li className={`${isRoot?'root-dir':''} sub-dir `}  >
+                <span className={`${isRoot?'root-dir-name':''}`}>{dir.name}</span>
+                {dirChildren.length && !isRoot?<span className="arrow-down" ></span>:''}
+            </li>
+            {
+                    dirChildren.length ?
+                        dirChildren.map(childDirKey=>{
+                            const childDirObj = {
+                                [childDirKey]:dir.children[childDirKey]
+                            }
+                            return <DirectoryTree parent={dir.name} key={dir.children[childDirKey].id} rootdir={childDirObj}/>;
+                        }):''
+                }
+            </div>
+
+        </ul>
+    );
+}
+function SideBar(props) {
+    const { rootdir } = props;
     return (
         <div className="side-bar">
-           
+
+            <div className="directory-list">
+                <DirectoryTree rootdir={rootdir} />
+            </div>
         </div>
     );
 }
+const stateToProps = (state) => {
+    return {
+        rootdir: state.rootdir
+    };
+}
+const SideBarCont = connect(stateToProps)(SideBar);
 
-export default withRouter(Browse);
+export default SideBarCont;
