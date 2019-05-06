@@ -25,17 +25,24 @@
             margin-top: 17px;
         }
         .sub-dir{
-            cursor: pointer;
+            cursor: default;
             display: flex;
             justify-content: space-between;
             align-items: center;
             font-size: 16px;
+            .dir-name{
+                max-width: 180px;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                white-space: nowrap;
+            }
             .arrow-down{
                 display: inline-block;
                 border-top: 5px solid black;
                 border-left: 5px transparent solid;
                 border-right: 5px transparent solid;
                 margin-right: 10px;
+                cursor: pointer;
             }
             &:not(.root-dir){
                 height: 43px;
@@ -53,6 +60,7 @@
                     display: inline-block;
                }
             }
+           
         }
         .sub-dir:hover{
             background: #EEEFF1;

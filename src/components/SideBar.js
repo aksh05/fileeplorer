@@ -1,5 +1,4 @@
 import React, {useState} from 'react'
-import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import '../sass/sidebar.scss';
@@ -9,20 +8,13 @@ function DirectoryTree(props) {
     const dir = rootdir[Object.keys(rootdir)[0]];
     const dirChildren = Object.keys(dir.children || {});
     const isRoot = dir.name === 'Root';
-    /* const [display,setDisplay] = useState(isRoot||props.parent=="Root"?'flex':'none');
-    let  style = {
-        display:isRoot?'flex':display,
-    };
-
-    function showChildren(){
-        setDisplay('flex');
-    } */
+   
     return (
         <ul className={`${isRoot?'root-dir-main':''} dir-main`} >
             <div>
 
-            <li className={`${isRoot?'root-dir':''} sub-dir `}  >
-                <span className={`${isRoot?'root-dir-name':''}`}>{dir.name}</span>
+            <li className={`${isRoot?'root-dir':''} sub-dir `}>
+                <span title={dir.name} className={`${isRoot?'root-dir-name':'dir-name'}`} >{dir.name}</span>
                 {dirChildren.length && !isRoot?<span className="arrow-down" ></span>:''}
             </li>
             {
