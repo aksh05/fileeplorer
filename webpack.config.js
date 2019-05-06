@@ -16,11 +16,7 @@ module.exports = {
 
     devServer: {
         contentBase: './',
-        historyApiFallback: {
-            rewrites: [
-                { from: /^\/$/, to: '/index.html' },
-              ]
-        }
+        historyApiFallback: true,
     },
     devtool: 'inline-source-map',
 

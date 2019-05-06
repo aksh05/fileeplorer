@@ -76,6 +76,14 @@ body{
                     background-color: #fffde6;  
                 }
             }
+            .file-cont:hover{
+                &.folder-wrapper{
+                    background-color: #E6F5FF;  
+                }
+                &.file-wrapper{
+                    background-color: #fffde6;  
+                }
+            }
             .no-files{
                 display: flex;
                 justify-content: center;

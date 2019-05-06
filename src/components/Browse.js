@@ -16,7 +16,7 @@ function filterFiles(files, fileName) {
 }
 function Browse({ match, rootdir, location, ...props }) {
    
-    const { currentDir } = location.state || { currentDir: "rootid" };
+    const { currentDir } = location.pathname == "/"?{ currentDir: "rootid" }:location.state;
     const currentDirObject = findCurrentDirectoy(currentDir, rootdir) || { children: {} };
     let { children: files } = currentDirObject;
     files = props.searchValue ? filterFiles(files, props.searchValue) : files;
