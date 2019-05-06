@@ -6,6 +6,14 @@
         See details about you files and foledrs( created date, created by)
         Search any file or folder in current directory
 
+#Tech Used
+    React.js
+    Redux
+    HTML5
+    SASS
+    Webpack
+    Webpack Dev Server
+    
 #Step to run the web app
     npm install
     npm start
