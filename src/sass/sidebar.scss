@@ -13,6 +13,9 @@
         padding-left: 10px;
         box-sizing: border-box;
         position: relative;
+        .dir-children{
+            animation: show 1s ease-in-out;
+        }
        /*  &:not(.root-dir-main){
             &.tree{
               
@@ -69,5 +72,17 @@
             }
         }
        
+    }
+}
+
+@keyframes show{
+    0%{
+        opacity: 0.1;
+    }
+    50%{
+        height: 50%;
+    }
+    100%{
+        opacity: 1;
     }
 }

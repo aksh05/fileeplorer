@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { withRouter } from 'react-router-dom'
 import '../sass/contextMenu.scss';
 import { formatDate } from '../shared/helper';
@@ -65,17 +65,16 @@ function ContextMenu(props) {
             document.removeEventListener("click", listener);
             ctMenu.removeEventListener("click", selectOption);
         }
-    }, [1]);
+    });
 
     function selectOption(e) {
         const currOption = e.target.getAttribute("value");
         const { selectedFile } = data;
         switch (currOption) {
-            case "open":
+            case "open":{
                 props.hideContextMenu();
                 props.updateCurrentFolder(selectedFile);
                 const pathname = location.pathname.length > 1 ? location.pathname : "";
-                console.log(pathname + "/" + selectedFile.name);
                 history.push({
                     pathname: pathname + "/" + selectedFile.name,
                     state: {
@@ -83,6 +82,7 @@ function ContextMenu(props) {
                     }
                 });
                 break;
+            }
             case "showInfo":
                 props.hideContextMenu();
                 props.setShowInfo(true);

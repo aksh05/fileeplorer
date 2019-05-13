@@ -25,6 +25,11 @@ function Browse({ match, rootdir, location, ...props }) {
     }
 
     const onFolderClick = (file) => {
+        if(document.selection && document.selection.empty) {
+            document.selection.empty();
+        } else if(window.getSelection) {
+            window.getSelection().removeAllRanges();
+        }
         props.updateCurrentFolder(file);
         const pathname = location.pathname.length > 1 ? location.pathname : "";
         props.history.push({
@@ -33,6 +38,7 @@ function Browse({ match, rootdir, location, ...props }) {
                 currentDir: file.id,
             }
         });
+
     }
 
     function getFileOptions(e,file){
@@ -76,7 +82,7 @@ function Browse({ match, rootdir, location, ...props }) {
 }
 
 
-const BrowseContainer = withRouter((Browse));
+const BrowseContainer = withRouter(Browse);
 
 
 export default BrowseContainer;

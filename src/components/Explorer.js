@@ -42,7 +42,7 @@ const stateToProps = (state) => {
 const dispatchToProps = (dispatch) => {
     return bindActionCreators(actions, dispatch);
 }
-const ExplorerCont = (connect(stateToProps, dispatchToProps)(Explorer));
+const ExplorerCont = connect(stateToProps, dispatchToProps)(Explorer);
 
 
 export default ExplorerCont;

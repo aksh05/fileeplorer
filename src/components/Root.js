@@ -5,13 +5,11 @@ import { Route, Switch } from 'react-router-dom'
 
 import Explorer from './Explorer';
 import SideBar from './SideBar';
-import NotFound from './NotFound';
+/* import NotFound from './NotFound'; */
 
 import '../sass/root.scss';
 
 export default function Root({ store }) {
-   const {rootdir} = store.getState();
-   const {children} = rootdir;
     return (
         <Provider store={store}>
             <div className="file-explorer">
