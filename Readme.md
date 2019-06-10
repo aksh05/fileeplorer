@@ -1,10 +1,10 @@
 ## React File Explorer
-The react file explorer lets you browse through you files on the web
+The react file explorer is  dummy representation of a file explorer. It lets you browse and search through dummy files and folders. You can create, modify and delete dummy files and folder
 ### *KeyFeatures*
 - Add files or folders
 - Navigate to a folder through context menu or double click
-- Delete you folder and files
-- See details about you files and foledrs( created date, created by)
+- Delete your folder and files
+- See details of  your files and foledrs( created date, created by etc)
 - Search any file or folder in current directory
 
 #### *Tech Used*
@@ -15,7 +15,7 @@ The react file explorer lets you browse through you files on the web
 - Webpack
 - Webpack Dev Server
     
-#### *Step to run the web app*
+#### *Step to run the app*
 - npm install
 - npm start
 
