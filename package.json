@@ -17,7 +17,8 @@
   },
   "eslintConfig": {
     "plugins": [
-      "react","react-hooks"
+      "react",
+      "react-hooks"
     ],
     "parser": "babel-eslint",
     "parserOptions": {
@@ -38,16 +39,16 @@
     ],
     "rules": {
       "react/prop-types": 0,
-      "react-hooks/rules-of-hooks": "error", 
+      "react-hooks/rules-of-hooks": "error",
       "react-hooks/exhaustive-deps": "warn",
       "no-extra-parens": "error",
+      "no-console": 0,
       "max-len": [
         "error",
         {
           "code": 600
         }
       ]
-     
     },
     "settings": {
       "react": {

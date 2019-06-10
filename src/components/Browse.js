@@ -25,6 +25,10 @@ function Browse({ match, rootdir, location, ...props }) {
     }
 
     const onFolderClick = (file) => {
+        /**
+         * Remove any selection caused by double click, 
+         * so as to improve the experience while navigating
+         */
         if(document.selection && document.selection.empty) {
             document.selection.empty();
         } else if(window.getSelection) {

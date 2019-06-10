@@ -14,7 +14,7 @@
         box-sizing: border-box;
         position: relative;
         .dir-children{
-            animation: show 1s ease-in-out;
+            animation: show 0.3s ease-in-out;
         }
        /*  &:not(.root-dir-main){
             &.tree{
@@ -28,7 +28,7 @@
             margin-top: 17px;
         }
         .sub-dir{
-            cursor: default;
+            cursor: pointer;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -39,13 +39,16 @@
                 overflow: hidden;
                 white-space: nowrap;
             }
+            .dir-name:hover{
+                text-decoration: underline
+            }
             .arrow-down{
                 display: inline-block;
                 border-top: 5px solid black;
                 border-left: 5px transparent solid;
                 border-right: 5px transparent solid;
                 margin-right: 10px;
-                cursor: pointer;
+                
             }
             &:not(.root-dir){
                 height: 43px;
@@ -76,13 +79,11 @@
 }
 
 @keyframes show{
-    0%{
-        opacity: 0.1;
-    }
-    50%{
-        height: 50%;
-    }
-    100%{
-        opacity: 1;
-    }
+    // 0%{
+    //     transform: translateY(-50px)
+    // }
+    
+    // 100%{
+    //     transform: translateY(0px)
+    // }
 }

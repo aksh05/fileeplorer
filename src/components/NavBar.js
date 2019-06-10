@@ -5,11 +5,14 @@ import arrowUp from '../images/arrow-up.png';
 import searchIcon from '../images/search.svg';
 function NavBar(props){
    
+    function goBack(){
+        props.history.goBack()
+    }
     const {location:{pathname}} = props;
     return <div className="nav-bar">
             <div className="route">
-                <span className={`go-back ${pathname==='/'?'disabled':''}`} onClick={()=>{props.history.goBack()}}>
-                    <img src={arrowUp} alt="go back"/>
+                <span className={`go-back ${pathname==='/'?'disabled':''}`} onClick={goBack}>
+                    <img src={arrowUp} alt="go back" />
                 </span>
                 <label className="current-route">
                     /root{pathname.length>1&& pathname}
