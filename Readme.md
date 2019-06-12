@@ -4,7 +4,7 @@ The react file explorer is  dummy representation of a file explorer. It lets you
 - Add files or folders
 - Navigate to a folder through context menu or double click
 - Delete your folder and files
-- See details of  your files and foledrs( created date, created by etc)
+- See details of  your files and foldrs( created date, created by etc)
 - Search any file or folder in current directory
 
 #### *Tech Used*
