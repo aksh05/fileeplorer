@@ -7,7 +7,11 @@ import {
 } from "./actionTypes";
 import { findCurrentDirectoryByName } from "../shared/helper";
 
-
+/**
+ * App's main reducer function.
+ * @param {Object} state 
+ * @param {Object} action 
+ */
 export function appReducer(state, action) {
     const { payload } = action;
     switch (action.type) {
