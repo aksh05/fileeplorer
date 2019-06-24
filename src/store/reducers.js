@@ -5,7 +5,7 @@ import {
     HIDE_CONTEXT_MENU,
     DELETE_FILE_FOLDER
 } from "./actionTypes";
-import { findCurrentDirectoy } from "../shared/helper";
+import { findCurrentDirectoryByName } from "../shared/helper";
 
 
 export function appReducer(state, action) {
@@ -15,6 +15,7 @@ export function appReducer(state, action) {
             {
                 return {
                     ...state,
+                    parentDir: state.currentDir,
                     currentDir: payload
                 }
             }
@@ -29,7 +30,7 @@ export function appReducer(state, action) {
             {
                 const newFileFolderId = Object.keys(payload['fileObj'])[0];
                 const rootdir = { ...state.rootdir }
-                const currentDirObj = findCurrentDirectoy(payload.currentDirId, rootdir);
+                const currentDirObj = findCurrentDirectoryByName(payload.currentDirId, rootdir);
                 currentDirObj.children[newFileFolderId] = payload['fileObj'][newFileFolderId];
                 return {
                     ...state,
@@ -63,7 +64,7 @@ export function appReducer(state, action) {
         case DELETE_FILE_FOLDER:
             {
                 const rootdir2 = { ...state.rootdir }
-                const currentDirObj2 = findCurrentDirectoy(payload.currDirId, rootdir2);
+                const currentDirObj2 = findCurrentDirectoryByName(payload.currDirId, rootdir2);
                 delete currentDirObj2.children[payload.fileIdToDel];
 
                 return {

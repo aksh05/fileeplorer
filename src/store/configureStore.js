@@ -4,6 +4,7 @@ import { rootdirectory } from './files';
 
 const initialState = {
     rootdir: rootdirectory,
+    parentDir: rootdirectory['rootid'],
     currentDir: rootdirectory['rootid'],
     isAddFileModal: false,
     searchValue:'',

@@ -11,7 +11,7 @@ import ContextMenu , {GetInfo} from './ContextMenu';
 
 function Explorer(props) {
     const [showInfo, setShowInfo] = useState(false);
-    const data = props.currentRghtClickData
+    const data = props.currentRghtClickData;
     return (
         <div className="explorer">
             <NavBar searchValue={props.searchValue} setSearch={props.setSearch}/>

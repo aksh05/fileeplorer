@@ -4,7 +4,7 @@ import { withRouter, Route } from 'react-router-dom'
 import addFileScr from '../images/addFile.png'
 import '../sass/browse.scss';
 
-import {findCurrentDirectoy} from '../shared/helper';
+import { findCurrentDirectoryByName} from '../shared/helper';
 function filterFiles(files, fileName) {
     return Object.keys(files).reduce((acc, filekey) => {
         const currName = files[filekey].name.toLowerCase();
@@ -15,9 +15,24 @@ function filterFiles(files, fileName) {
     }, {})
 }
 function Browse({ match, rootdir, location, ...props }) {
-   
-    const { currentDir } = location.pathname == "/"?{ currentDir: "rootid" }:location.state;
-    const currentDirObject = findCurrentDirectoy(currentDir, rootdir) || { children: {} };
+    let currentDirObject, directoryPath = location.pathname.slice(1);
+    if(location.pathname === '/'){
+        currentDirObject = rootdir[Object.keys(rootdir)[0]];
+    }else{
+        // if(!futureCurrDir){
+            currentDirObject = findCurrentDirectoryByName(directoryPath, rootdir);
+        // }else{
+        //     // directoryPath = directoryPath.split("/").pop();
+        //     // currentDirObject = findCurrentDirectoryByName(directoryPath, {[props.parentDir.id]:props.parentDir});
+        //     /*
+        //      * This code can be discarded as it uses folder ids for routing, which does not work if
+        //      * user manually enters the directory name on the address bar
+        //      */
+        //     //currentDirObject = findCurrentDirectoy(currentDir, rootdir) || { children: {} };
+        // }
+    }
+    
+    
     let { children: files } = currentDirObject;
     files = props.searchValue ? filterFiles(files, props.searchValue) : files;
     function addFolder() {
@@ -34,14 +49,15 @@ function Browse({ match, rootdir, location, ...props }) {
         } else if(window.getSelection) {
             window.getSelection().removeAllRanges();
         }
-        props.updateCurrentFolder(file);
+        
         const pathname = location.pathname.length > 1 ? location.pathname : "";
         props.history.push({
             pathname: pathname + "/" + file.name,
             state: {
-                currentDir: file.id,
+                currentDir: file.name,
             }
         });
+        props.updateCurrentFolder(file);
 
     }
 
@@ -53,7 +69,7 @@ function Browse({ match, rootdir, location, ...props }) {
         <div className="browse-cont">
             <div className="browse">
                 {
-                    Object.keys(files).length && (match.params.id === currentDir || !match.params.id) ? Object.keys(files).map(key => {
+                    Object.keys(files).length  ? Object.keys(files).map(key => {
                         const file = files[key];
                         const { name } = file;
                         return (

@@ -11,7 +11,7 @@ function DirectoryTree(props) {
     const dir = rootdir[Object.keys(rootdir)[0]];
     const dirChildren = Object.keys(dir.children || {});
     const isRoot = dir.name === 'Root';
-    const [childDisplay, setChildDisplay] = useState('none');
+    const [childDisplay, setChildDisplay] = useState('block');
 
     const style = {
         display: childDisplay,
@@ -42,12 +42,13 @@ function DirectoryTree(props) {
                 <div className={`${!isRoot?'dir-children':''}`} style={style}>
                     {
                         dirChildren.length ?
-                        dirChildren.map(childDirKey=>{
-                            const childDirObj = {
-                                [childDirKey]:dir.children[childDirKey]
-                            }
-                            return <DirectoryTree updateCurrentFolder={props.updateCurrentFolder} parent={dir} key={dir.children[childDirKey].id} rootdir={childDirObj}/>;
-                        }):''
+                            dirChildren.map(childDirKey=>{
+                                const childDirObj = {
+                                    [childDirKey]:dir.children[childDirKey]
+                                }
+                                return <DirectoryTree updateCurrentFolder={props.updateCurrentFolder} parent={dir} key={dir.children[childDirKey].id} rootdir={childDirObj}/>;
+                            })
+                        :''
                     }
                 </div>
 
