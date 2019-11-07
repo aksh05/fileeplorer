@@ -1,5 +1,5 @@
 ## React File Explorer
-The react file explorer is  dummy representation of a file explorer. It lets you browse and search through dummy files and folders. You can create, modify and delete dummy files and folder
+The react file explorer is  dummy representation of a file explorer. It lets you browse and search through dummy files and folders.
 ### *KeyFeatures*
 - Add files or folders
 - Navigate to a folder through context menu or double click
