@@ -34,7 +34,7 @@ export function appReducer(state, action) {
             {
                 const newFileFolderId = Object.keys(payload['fileObj'])[0];
                 const rootdir = { ...state.rootdir }
-                const currentDirObj = findCurrentDirectoryByName(payload.currentDirId, rootdir);
+                const currentDirObj = findCurrentDirectoryByName(location.pathname.slice(1), rootdir);
                 currentDirObj.children[newFileFolderId] = payload['fileObj'][newFileFolderId];
                 return {
                     ...state,
@@ -68,7 +68,7 @@ export function appReducer(state, action) {
         case DELETE_FILE_FOLDER:
             {
                 const rootdir2 = { ...state.rootdir }
-                const currentDirObj2 = findCurrentDirectoryByName(payload.currDirId, rootdir2);
+                const currentDirObj2 = findCurrentDirectoryByName(location.pathname.slice(1), rootdir2);
                 delete currentDirObj2.children[payload.fileIdToDel];
 
                 return {
